@@ -1,4 +1,4 @@
-package com.hsbc.rest.controller;
+package com.bank.rest.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

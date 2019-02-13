@@ -1,4 +1,4 @@
-package com.hsbc.config;
+package com.bank.config;
 
 import org.drools.decisiontable.DecisionTableProviderImpl;
 import org.kie.api.KieServices;
