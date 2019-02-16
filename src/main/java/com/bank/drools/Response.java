@@ -1,9 +1,11 @@
-package com.drools;
+package com.bank.drools;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Response {
 
 	private String url;

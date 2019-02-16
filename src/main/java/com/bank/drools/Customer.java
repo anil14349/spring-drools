@@ -1,5 +1,8 @@
-package com.drools;
+package com.bank.drools;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Customer {
 
 	private int cin;

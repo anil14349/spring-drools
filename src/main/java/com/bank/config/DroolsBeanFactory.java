@@ -10,10 +10,13 @@ import org.kie.internal.builder.DecisionTableConfiguration;
 import org.kie.internal.builder.DecisionTableInputType;
 import org.kie.internal.builder.KnowledgeBuilderFactory;
 import org.kie.internal.io.ResourceFactory;
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+@Component
 public class DroolsBeanFactory {
 
 	private static final String RULES_PATH = "/home/a/Downloads/";

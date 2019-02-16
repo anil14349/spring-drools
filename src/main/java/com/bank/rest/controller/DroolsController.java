@@ -6,34 +6,47 @@ import java.util.List;
 import java.util.Map;
 
 import org.kie.api.runtime.KieSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.bank.config.DroolsBeanFactory;
-import com.drools.Customer;
-import com.drools.Response;
+import com.bank.drools.Customer;
+import com.bank.drools.Response;
 
 @RestController
 public class DroolsController {
 
-	 KieSession kieSession;
-	 Customer customer;
-	 
+	@Autowired
+	Customer customer;
+	
+	@Autowired
+	Response response;
+	
+	@Autowired
+	DroolsBeanFactory droolsBeanFactory;
+	
+	@Autowired
+	RestTemplate restTemplate;
+
 	@PostMapping("/getConfig")
-	public Response getConfig(@RequestBody Customer customer) {
-		kieSession = new DroolsBeanFactory().getKieSession();
+	public String getConfig(@RequestBody Customer customer) {
+		KieSession kieSession = droolsBeanFactory.getKieSession();
 		kieSession.insert(customer);
-		Response response=new Response();
+		//response = new Response();
 		List<String> attributes = new ArrayList<String>();
-		Map<String,String> map=new HashMap<String,String>();
+		Map<String, String> map = new HashMap<String, String>();
 		kieSession.setGlobal("attributes", attributes);
 		kieSession.setGlobal("map", map);
-		System.out.println(kieSession.fireAllRules());
+		kieSession.fireAllRules();
 		response.setAttributes(attributes);
-		response.setUrl(map.get("url"));
 		response.setCustomer(customer);
-		System.out.println("*********"+response.getAttributes());
-		return response;
+		
+		String res = restTemplate.getForObject(map.get("url"), String.class);
+		
+		kieSession.dispose();
+		return res;
 	}
 }
