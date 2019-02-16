@@ -1,20 +1,41 @@
 package com.drools;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class Response {
 
-    private final long id;
-    private final String content;
+	private String url;
+	private List<String> attributes = new ArrayList<String>();
+	private Customer customer;
 
-    public Response(long id, String content) {
-        this.id = id;
-        this.content = content;
-    }
+	public String getUrl() {
+		return url;
+	}
 
-    public long getId() {
-        return id;
-    }
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public List<String> getAttributes() {
+		return attributes;
+	}
+
+	public void setAttributes(List<String> attributes) {
+		this.attributes = attributes;
+	}
+
+	public void addAttributes(String attribute) {
+		this.attributes.add(attribute);
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
 }

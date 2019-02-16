@@ -51,7 +51,7 @@ public class DroolsBeanFactory {
 	public KieSession getKieSession() {
 		getKieRepository();
 		KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
-		kieFileSystem.write(ResourceFactory.newClassPathResource("Discount.xls"));
+		kieFileSystem.write(ResourceFactory.newClassPathResource("customers.drl"));
 		KieBuilder kb = kieServices.newKieBuilder(kieFileSystem);
 		kb.buildAll();
 		KieModule kieModule = kb.getKieModule();

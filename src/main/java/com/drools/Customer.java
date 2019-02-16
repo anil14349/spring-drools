@@ -1,43 +1,43 @@
 package com.drools;
 
 public class Customer {
-	private CustomerType type;
 
-	private int years;
+	private int cin;
+	private String srcSys;
+	private String lob;
+	private String country;
 
-	private int discount;
-
-	public Customer(CustomerType type, int discount) {
-		this.type = type;
-		this.discount = discount;
+	public String getLob() {
+		return lob;
 	}
 
-	public enum CustomerType {
-		INDIVIDUAL, BUSINESS;
+	public void setLob(String lob) {
+		this.lob = lob;
 	}
 
-	public CustomerType getType() {
-		return type;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setType(CustomerType type) {
-		this.type = type;
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	
+
+	public int getCin() {
+		return cin;
 	}
 
-	public int getYears() {
-		return years;
+	public void setCin(int cin) {
+		this.cin = cin;
 	}
 
-	public void setYears(int years) {
-		this.years = years;
+	public String getSrcSys() {
+		return srcSys;
 	}
 
-	public int getDiscount() {
-		return discount;
-	}
-
-	public void setDiscount(int discount) {
-		this.discount = discount;
+	public void setSrcSys(String srcSys) {
+		this.srcSys = srcSys;
 	}
 
 }
