@@ -35,7 +35,6 @@ public class DroolsController {
 	public String getConfig(@RequestBody Customer customer) {
 		KieSession kieSession = droolsBeanFactory.getKieSession();
 		kieSession.insert(customer);
-		//response = new Response();
 		List<String> attributes = new ArrayList<String>();
 		Map<String, String> map = new HashMap<String, String>();
 		kieSession.setGlobal("attributes", attributes);

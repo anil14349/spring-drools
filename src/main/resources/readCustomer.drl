@@ -1,0 +1,12 @@
+package com.myspace.first;
+
+rule "readCustomer"
+	dialect "mvel"
+	when
+		Customer( cin != null , country == "UK" , srcSys == "CBB" )
+	then
+		Customer fact0 = new Customer();
+		fact0.setUrl( "testurl" );
+		fact0.setAttributesList(  );
+		insert( fact0 );
+end

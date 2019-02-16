@@ -1,0 +1,43 @@
+package com.rules
+dialect "java"
+
+import com.bank.drools.Customer;
+import java.util.List;
+import java.util.Map;
+
+global List attributes;
+global Map map;
+
+
+rule "Customer.url"
+ 
+  when
+      p : Customer(cin != null , (srcSys == "hubuk" || srcSys == "CDD"))
+  then
+      map.put("url","http://www.google.com");
+end
+
+rule "Customer.cin"
+ 
+  when
+      p : Customer(cin != null , (srcSys == "hubuk" || srcSys == "CDD"))
+  then
+      attributes.add("customer.cin");
+end
+
+rule "Customer.firstName"
+ 
+  when
+      p : Customer(cin != null , (srcSys == "hubuk" || srcSys == "CDD"))
+  then
+      attributes.add("customer.firstName");
+end
+
+rule "Customer.address"
+ 
+  when
+      p : Customer(cin != null , (srcSys == "hubuk" || srcSys == "CDD"))
+  then
+      attributes.add("customer.address");
+end
+
